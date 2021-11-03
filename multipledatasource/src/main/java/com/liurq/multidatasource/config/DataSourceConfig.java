@@ -99,6 +99,7 @@ public class DataSourceConfig {
         return liurqMultiDataSource;
     }
 
+    @Bean
     public SqlSessionFactory sqlSessionFactory(@Qualifier("liurqMultiDataSource") LiurqMultiDataSource liurqMultiDataSource) throws Exception {
 
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
