@@ -42,4 +42,14 @@ public abstract class AbstractRouting implements IRouting, InitializingBean {
     public String getFormatTableSuffix(Integer tableIndex) {
         return null;
     }
+
+    /**
+     * 配置检查
+     *
+     * @throws Exception
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+    }
 }
