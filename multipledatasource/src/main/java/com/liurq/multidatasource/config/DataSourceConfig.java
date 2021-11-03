@@ -1,6 +1,7 @@
 package com.liurq.multidatasource.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.liurq.multidatasource.dynamicdatasource.LiurqMultiDataSource;
 import com.liurq.multidatasource.support.DsRoutingSetProperties;
 import com.liurq.multidatasource.support.MultipleDruidProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 
 /**
  * @author liurq
@@ -65,6 +67,23 @@ public class DataSourceConfig {
         druidDataSource.setUrl(multipleDruidProperties.getDruid02jdbcUrl());
         druidDataSource.setDriverClassName(multipleDruidProperties.getDruid02driverClass());
         return druidDataSource;
+    }
+
+    @Bean("liurqMultiDataSource")
+    public LiurqMultiDataSource dataSource() {
+
+        LiurqMultiDataSource liurqMultiDataSource = new LiurqMultiDataSource();
+
+        HashMap<Object, Object> targetDataSource = new HashMap<>();
+        targetDataSource.put("dataSource00", dataSource00());
+        targetDataSource.put("dataSource01", dataSource01());
+        targetDataSource.put("dataSource02", dataSource02());
+
+        liurqMultiDataSource.setTargetDataSources(targetDataSource);
+        //设置默认数据源
+        liurqMultiDataSource.setDefaultTargetDataSource(dataSource00());
+
+
     }
 
 
