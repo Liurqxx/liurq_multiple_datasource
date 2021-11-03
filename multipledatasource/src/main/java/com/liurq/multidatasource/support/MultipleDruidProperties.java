@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @ConfigurationProperties(prefix = "spring.datasource")
-public class multipleDruidProperties {
+public class MultipleDruidProperties {
 
     private String druid00username;
     private String  druid00passwrod;
