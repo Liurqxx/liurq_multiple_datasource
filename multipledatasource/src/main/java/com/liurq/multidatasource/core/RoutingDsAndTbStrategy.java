@@ -1,5 +1,7 @@
 package com.liurq.multidatasource.core;
 
+import com.liurq.multidatasource.dynamicdatasource.MultiDataSourceHolder;
+
 /**
  * @author liurq
  * @desc 路由策略 多库多表
@@ -16,7 +18,20 @@ public class RoutingDsAndTbStrategy extends AbstractRouting {
      */
     @Override
     public String calDataSourceKey(String routingFiled) throws Exception {
-        return null;
+
+        String dataSourceKey = null;
+        //路由key的hashCode
+        Integer routingFileHashCode = getRoutingFileHashCode(routingFiled);
+        //计算数据库索引值
+        Integer dsIndex = routingFileHashCode % getDsRoutingSetProperties().getDataSourceNum();
+
+        //根据索引值得到对应的数据源
+        dataSourceKey = getDsRoutingSetProperties().getDataSourceKeysMapping().get(dsIndex);
+
+        //加入线程变量中
+        MultiDataSourceHolder.setDataSourceKey(dataSourceKey);
+
+        return dataSourceKey;
     }
 
     /**
