@@ -2,7 +2,6 @@ package com.liurq.multidatasource.core;
 
 import com.liurq.multidatasource.enumuration.RoutingStategyEnum;
 import com.liurq.multidatasource.support.DsRoutingSetProperties;
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
