@@ -49,6 +49,8 @@ public class RoutingDsAndTbStrategy extends AbstractRouting {
         Integer tbIndex = routingFileHashCode % getDsRoutingSetProperties().getTableNum();
 
         //拼接后缀
-        return getFormatTableSuffix(tbIndex);
+        String tableSuffix = getFormatTableSuffix(tbIndex);
+        MultiDataSourceHolder.setTableIndex(tableSuffix);
+        return tableSuffix;
     }
 }
