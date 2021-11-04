@@ -42,6 +42,13 @@ public class RoutingDsAndTbStrategy extends AbstractRouting {
      */
     @Override
     public String calTableKey(String routingFiled) {
-        return null;
+
+        //路由key的hashCode
+        Integer routingFileHashCode = getRoutingFileHashCode(routingFiled);
+        //计算表索引
+        Integer tbIndex = routingFileHashCode % getDsRoutingSetProperties().getTableNum();
+
+        //拼接后缀
+        return getFormatTableSuffix(tbIndex);
     }
 }
