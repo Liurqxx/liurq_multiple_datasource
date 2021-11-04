@@ -6,6 +6,7 @@ import com.liurq.multidatasource.support.DsRoutingSetProperties;
 import com.liurq.multidatasource.support.MultipleDruidProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.tomcat.util.file.ConfigFileLoader;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
@@ -104,7 +105,7 @@ public class DataSourceConfig {
 
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(liurqMultiDataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource(""));
+//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:mapper/*Mapper.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }

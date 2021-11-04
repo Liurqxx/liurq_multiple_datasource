@@ -53,6 +53,7 @@ public class RoutingAspect {
         if (null != args && args.length > 0) {
             for (int index = 0; index < args.length; index++) {
                 String routingFieldValue = BeanUtils.getProperty(args[index], routingFiled);
+                log.info("routingFieldValue:{}", routingFieldValue);
                 if (StringUtils.isNotBlank(routingFieldValue)) {
                     String dbKey = routing.calDataSourceKey(routingFieldValue);
                     String tableIndex = routing.calTableKey(routingFieldValue);

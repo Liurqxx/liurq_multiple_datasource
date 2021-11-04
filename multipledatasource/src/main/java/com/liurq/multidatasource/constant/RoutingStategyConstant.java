@@ -17,5 +17,5 @@ public class RoutingStategyConstant {
     /**
      * 路由字段
      */
-    public static final String DEFAULT_ROUTING_FIELD = "orderId";
+    public static final String DEFAULT_ROUTING_FIELD = "typeId";
 }
