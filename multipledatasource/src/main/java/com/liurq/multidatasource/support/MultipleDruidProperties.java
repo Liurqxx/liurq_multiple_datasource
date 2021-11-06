@@ -2,6 +2,7 @@ package com.liurq.multidatasource.support;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author liurq
@@ -9,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2021-11-03  21:45
  */
 @Data
+@Configuration
 @ConfigurationProperties(prefix = "spring.datasource")
 public class MultipleDruidProperties {
 

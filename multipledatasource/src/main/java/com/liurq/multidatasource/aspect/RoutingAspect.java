@@ -12,11 +12,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.InvocationTargetException;
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
 /**
@@ -29,7 +27,7 @@ import java.lang.reflect.Method;
 @Component
 public class RoutingAspect {
 
-    @Autowired
+    @Resource
     private IRouting routing;
 
     @Pointcut("@annotation(com.liurq.multidatasource.annotation.Router)")
