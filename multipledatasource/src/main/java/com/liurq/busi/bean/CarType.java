@@ -2,10 +2,6 @@ package com.liurq.busi.bean;
 
 import com.liurq.multidatasource.dynamicdatasource.MultiDataSourceHolder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Data
 public class CarType {

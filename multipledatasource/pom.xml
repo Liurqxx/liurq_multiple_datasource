@@ -79,7 +79,6 @@
                 </includes>
             </resource>
 
-            <!--将resources目录下的配置文件编译进classes文件  -->
             <resource>
                 <directory>src/main/resources</directory>
             </resource>

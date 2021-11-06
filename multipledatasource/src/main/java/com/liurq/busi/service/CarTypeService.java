@@ -6,7 +6,6 @@ import com.liurq.busi.bean.CarType;
 
 public interface CarTypeService extends IService<CarType> {
 
-
     Boolean saveCarTypeList(CarType carType);
 
 }
