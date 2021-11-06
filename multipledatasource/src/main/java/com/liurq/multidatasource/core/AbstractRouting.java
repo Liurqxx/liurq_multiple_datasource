@@ -1,6 +1,5 @@
 package com.liurq.multidatasource.core;
 
-import com.liurq.multidatasource.enumuration.RoutingStategyEnum;
 import com.liurq.multidatasource.support.DsRoutingSetProperties;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +44,7 @@ public abstract class AbstractRouting implements IRouting, InitializingBean {
         StringBuffer stringBuffer = new StringBuffer(dsRoutingSetProperties.getTableSuffixConnect());
 
         try {
-            stringBuffer.append(String.format(getDsRoutingSetProperties().getTableSuffixStyle(),tableIndex));
+            stringBuffer.append(String.format(getDsRoutingSetProperties().getTableSuffixStyle(), tableIndex));
         } catch (Exception e) {
             e.printStackTrace();
         }
